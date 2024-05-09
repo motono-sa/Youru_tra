@@ -37,6 +37,10 @@ SNSを活用した宣伝
 Xへのシェア：どの動画をしたかシェアできる。<br>
 
 ## 機能の実装方針予定
-YouTube Data API ：youtubeから筋トレ動画を検索する。<br>
-キーワード：ユーザーが特定の言語やフレーズで部位を指定できるように、APIの検索クエリに組み込む形で実装する。<br>
-google Calendar API: ユーザーがどの動画でトレーニングをしたのかを記録するカレンダー機能の実装。
+### 使用予定の技術
+サーバーサイド：Ruby on Rails 7.1.3 , Ruby 3.2.2<br>
+フロントエンド：Ruby on Rails , JavaScript<br>
+CSSフレームワーク：Tailwindcss , daisyUI<br>
+Web API：YouTube Data API , google Calendar API<br>
+データベース：PostgreSQL<br>
+インフラ：Render
