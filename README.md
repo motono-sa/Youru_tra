@@ -49,4 +49,4 @@ Web API：YouTube Data API , google Calendar API<br>
 Figma:https://www.figma.com/file/a0IWLOsK3ekEjkbH9rmrn7/You%E3%82%8B%E3%83%88%E3%83%AC?type=design&node-id=0%3A1&mode=design&t=Y33mAWtTLX7lVgln-1
 
 ### ER図
-![ER図](https://github.com/motono-sa/Youru_tra/blob/add_er_readme/images/Youru_tra_ER.png)
+![ER図](https://i.gyazo.com/6c115054e093519acf17c248a6f1dc35.png)
