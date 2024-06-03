@@ -67,3 +67,12 @@ group :test do
 end
 
 gem "tailwindcss-rails", "~> 2.6"
+
+# APIリクエスト
+gem 'httparty'
+
+# 環境変数管理
+gem 'dotenv-rails'
+
+# ユーザー認証
+gem 'sorcery'
