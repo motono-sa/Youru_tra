@@ -8,4 +8,12 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   root 'static_pages#top'
+
+  resources :videos, only: [] do
+    collection do
+      get :search, to: 'videos#search', as: :search
+    end
+  end
+  resources :users, only:[:new, :create]
+  resources :training_parts, only: [:index]
 end

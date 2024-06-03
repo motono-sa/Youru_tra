@@ -1,0 +1,11 @@
+<div>
+  <h1 class="font-bold text-4xl">Videos#search</h1>
+  <p>Find me in app/views/videos/search.html.erb</p>
+  <h1>検索結果</h1>
+  <% @videos.each do |video| %>
+    <div>
+      <h2><%= video.title %></h2>
+      <a href="<%= video.url %>" target="_blank">動画を見る</a>
+    </div>
+  <% end %>
+</div>
