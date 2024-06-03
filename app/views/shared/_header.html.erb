@@ -1,4 +1,4 @@
-<header class="bg-customBlue1 flex flex-row justify-between items-center h-20 relative text-white font-gorilla">
+<header class="bg-customBlue1 flex flex-row justify-between items-center h-20 relative text-block font-gorilla">
   <!-- ロゴ部分 -->
   <div class="ml-4 md:mx-5 hover:text-blue-600 transition duration-300 text-lg">
     <%= link_to "Youるトレ", "/" %>
@@ -13,7 +13,7 @@
       <p class="text-sm"><%= t "defaults.profile" %></p>
     <% end %>
     <%= link_to '/', data: { turbo_method: :delete, turbo_confirm: "ログアウトする？" }, class: 'hover:text-blue-600 transition duration-300 hidden lg:flex lg:flex-col px-2' do %>
-      <p class="text-sm"><%= t ".logout" %></p>
+      <p class="text-sm"><%= t ".login" %></p>
     <% end %>
     <!-- サイドバーメニュー -->
 
