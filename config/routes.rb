@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # root "posts#index"
   root 'static_pages#top'
 
-  resources :videos, only: [] do
+  resources :videos, only: [:index, :show] do
     collection do
       get :search, to: 'videos#search', as: :search
     end

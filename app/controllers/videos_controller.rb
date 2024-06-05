@@ -1,11 +1,18 @@
 class VideosController < ApplicationController
   def search
     training_part = TrainingPart.find(params[:training_part_id])
-    query = training_part.name + " workout"
     service = YoutubeService.new
-    response = service.search_videos(query)
-    @videos = response['items'].map do |item|
-      Video.create(title: item['snippet']['title'], url: "https://www.youtube.com/watch?v=#{item['id']['videoId']}")
+    video_data = service.search_random_video(training_part.name)
+    @video = Video.find_or_create_by(url: "https://www.youtube.com/watch?v=#{video_data['id']['videoId']}") do |video|
+      video.title = video_data['snippet']['title']
     end
+  end
+
+  def index
+    @videos = Video.all
+  end
+
+  def show
+    @video = Video.find(params[:id])
   end
 end
