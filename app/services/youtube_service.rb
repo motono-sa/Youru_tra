@@ -4,8 +4,8 @@ class YoutubeService
 
   def initialize
     @api_key = ENV['YOUTUBE_API_KEY']
-    @keywords = ["exercise", "fitness", "training", "bodybuilding"]
-    @ng_keywords = ["バストアップ", "女性"]
+    @keywords = ["エクササイズ", "フィットネス", "トレーニング", "ボディビルディング", "無酸素"]
+    @ng_keywords = ["バストアップ", "女性", "高重量", "器具"]
   end
 
   def search_random_video(training_part_name)

@@ -9,9 +9,6 @@
     <%= link_to '/', class: 'hover:text-blue-600 transition duration-300 hidden lg:flex lg:flex-col px-2' do %>
       <p class="text-sm"><%= t "defaults.home" %></p>
     <% end %>
-    <%= link_to '/', data: { turbo: false }, class: 'hover:text-blue-600 transition duration-300 hidden lg:flex lg:flex-col px-2' do %>
-      <p class="text-sm"><%= t "defaults.profile" %></p>
-    <% end %>
     <%= link_to '/', data: { turbo_method: :delete, turbo_confirm: "ログアウトする？" }, class: 'hover:text-blue-600 transition duration-300 hidden lg:flex lg:flex-col px-2' do %>
       <p class="text-sm"><%= t ".login" %></p>
     <% end %>
@@ -31,11 +28,6 @@
             <%= link_to '/', class: 'btn btn-ghost flex items-center mx-2' do %>
               <p class="text-sm"><%= t "defaults.home" %></p>
             <% end %>
-          <li class="hover:rounded-xl mt-4">
-            <%= link_to '/', data: { turbo: false }, class: 'btn btn-ghost flex items-center mx-2' do %>
-              <p class="text-sm"><%= t "defaults.profile" %></p>
-            <% end %>
-          </li>
           <li class="hover:rounded-xl mt-4">
             <%= link_to '/', data: { turbo_method: :delete, turbo_confirm: "ログアウトするウホ？" }, class: 'btn btn-ghost flex items-center mx-2' do %>
               <p class="text-sm"><%= t ".logout" %></p>
