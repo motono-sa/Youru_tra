@@ -1,15 +1,14 @@
 <div class="flex flex-col justify-center items-center">
   <div class="mx-auto px-10 flex flex-col justify-center items-center">
-    <div class="flex flex-col justify-center items-center">
+    <div class="flex flex-col justify-center items-center mb-10">
       <h1  class="text-3xl font-bold text-blue-500">YouruTra_top</h1>
-      <%= link_to "使ってみる", training_parts_path, class: "btn btn-outline btn-secondary" %>
-      <button class="btn btn-outline btn-secondary">Neutral</button>
-      <button class="btn btn-outline btn-success">Success</button>
-      <h3>サービス概要</h3>
+      <%= link_to "使ってみる", training_parts_path, class: "btn btn-secondary text-base-200 mb-10", data: { remote: true } %>
+      <h2 class="text-2xl md:text-3xl text-center">サービス概要</h2>
+      <p>Youtubeでどの筋トレ動画をするか迷うあなたへ届けます</p>
     </div>
     <div class="grid grid-cols-1 gap-2">
-      <h2 class="text-2xl md:text-3xl mb-10 text-center">Youるトレの使い方</h2>
-      <div class="bg-white p-6 rounded-lg shadow-xl mx-5 mb-5 py-5 ">
+      <h2 class="text-2xl md:text-3xl mb-5 text-center">Youるトレの使い方</h2>
+      <div class="bg-white p-6 rounded-lg shadow-lg mb-5">
         <h1 class="text-xl md:text-2xl text-center">かきくけお</h1>
         <div class="text-left text-sm md:text-lg">
           <p class="mb-5">あああああああああああああいうえお</p>
@@ -17,7 +16,7 @@
         </div>
       </div>
     </div>
-    <%= link_to "使ってみる", training_parts_path, class: "btn btn-secondary mb-5" %>
+      <%= link_to "使ってみる", training_parts_path, class: "btn btn-secondary text-base-200 mb-5", data: { remote: true } %>
 
     <!-- コメントアウト
     <div>
