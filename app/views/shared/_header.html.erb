@@ -1,15 +1,18 @@
-<header class="bg-customBlue1 flex flex-row justify-between items-center h-20 relative text-block font-gorilla">
+<header class="bg-primary flex flex-row justify-between items-center h-20 relative text-block">
   <!-- ロゴ部分 -->
-  <div class="ml-4 md:mx-5 hover:text-blue-600 transition duration-300 text-lg">
+  <div class="ml-4 md:mx-5 font-bold text-white hover:text-accent transition duration-100 text-lg">
     <%= link_to "Youるトレ", "/" %>
   </div>
 
   <!-- リンク -->
-  <div class="text-sky-700 flex items-center space-x-3 lg:mx-5">
-    <%= link_to '/', class: 'hover:text-blue-600 transition duration-300 hidden lg:flex lg:flex-col px-2' do %>
+  <div class="text-white flex items-center space-x-3 lg:mx-5">
+    <%= link_to '/', class: 'hover:text-accent transition duration-200 hidden lg:flex lg:flex-col px-2' do %>
       <p class="text-sm"><%= t "defaults.home" %></p>
     <% end %>
-    <%= link_to '/', data: { turbo_method: :delete, turbo_confirm: "ログアウトする？" }, class: 'hover:text-blue-600 transition duration-300 hidden lg:flex lg:flex-col px-2' do %>
+    <%= link_to '/', class: 'hover:text-accent transition tduration-200 hidden lg:flex lg:flex-col px-2' do %>
+      <p class="text-sm"><%= t "defaults.sign_up" %></p>
+    <% end %>
+    <%= link_to '/', data: { turbo_method: :delete, turbo_confirm: "ログアウトする？" }, class: 'hover:text-accent transition tduration-200 hidden lg:flex lg:flex-col px-2' do %>
       <p class="text-sm"><%= t ".login" %></p>
     <% end %>
     <!-- サイドバーメニュー -->
@@ -28,8 +31,14 @@
             <%= link_to '/', class: 'btn btn-ghost flex items-center mx-2' do %>
               <p class="text-sm"><%= t "defaults.home" %></p>
             <% end %>
+          </li>
           <li class="hover:rounded-xl mt-4">
-            <%= link_to '/', data: { turbo_method: :delete, turbo_confirm: "ログアウトするウホ？" }, class: 'btn btn-ghost flex items-center mx-2' do %>
+            <%= link_to '/', class: 'btn btn-ghost flex items-center mx-2' do %>
+              <p class="text-sm"><%= t "defaults.sign_up" %></p>
+            <% end %>
+          </li>
+          <li class="hover:rounded-xl mt-4">
+            <%= link_to '/', data: { turbo_method: :delete, turbo_confirm: "ログアウトする？" }, class: 'btn btn-ghost flex items-center mx-2' do %>
               <p class="text-sm"><%= t ".logout" %></p>
             <% end %>
           </li>
