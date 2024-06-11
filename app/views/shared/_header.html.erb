@@ -1,6 +1,6 @@
 <header class="bg-primary flex flex-row justify-between items-center h-20 relative text-block">
   <!-- ロゴ部分 -->
-  <div class="ml-4 md:mx-5 font-bold text-white hover:text-accent transition duration-100 text-lg whitespace-nowrap">
+  <div class="menu menu-horizontal ml-4 md:mx-5 font-bold text-white hover:text-accent transition duration-100 text-lg whitespace-nowrap">
     <%= link_to "Youるトレ", "/" %>
   </div>
 
@@ -24,7 +24,7 @@
               <% end %>
               </li>
             <li>
-              <%= link_to '/' do %>
+              <%= link_to new_user_path do %>
                 <p class="text-sm"><%= t "defaults.sign_up" %></p>
               <% end %>
             </li>

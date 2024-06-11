@@ -1,20 +1,110 @@
-<header>
-  <nav class="navbar navbar-expand-lg navigation navbar-light bg-light">
+<header class="bg-primary flex flex-row justify-between items-center h-20 relative text-block">
+  <!-- ロゴ部分 -->
+  <div class="menu menu-horizontal ml-4 md:mx-5 font-bold text-white hover:text-accent transition duration-100 text-lg whitespace-nowrap">
+    <%= link_to "Youるトレ", "/" %>
+  </div>
 
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "logo.png" %>
-    <% end %>
-
-    <button class='navbar-toggler' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto main-nav align-items-center">
-        <li class="nav-item">
-          <%= link_to 'ログイン', login_path, class: "nav-link" %>
+  <!-- リンク -->
+  <div class="drawer drawer-end">
+    <input id="my-drawer-3" type="checkbox" class="drawer-toggle" /> 
+    <div class="drawer-content flex flex-col">
+      <!-- Navbar -->
+      <div class="w-full navbar text-white">
+        <div class="flex lg:hidden ml-auto">
+          <label for="my-drawer-3" aria-label="open sidebar" class="btn btn-square btn-ghost">
+            <i class="fas fa-bars fa-lg"></i>
+          </label>
+        </div> 
+        <div class="hidden lg:flex lg:items-center lg:space-x-3 ml-auto">
+          <ul class="menu menu-horizontal">
+            <!-- Navbar menu content here -->
+            <li>
+              <%= link_to '/' do %>
+                <p class="text-sm"><%= t "defaults.home" %></p>
+              <% end %>
+              </li>
+            <li>
+              <%= link_to new_user_path do %>
+                <p class="text-sm"><%= t "defaults.sign_up" %></p>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to login_path, data: { remote: true } do %>
+                <p class="text-sm"><%= t ".login" %></p>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Page content here -->
+    </div> 
+    <div class="drawer-side">
+      <label for="my-drawer-3" aria-label="close sidebar" class="drawer-overlay"></label> 
+      <ul class="menu p-4 w-80 min-h-full bg-base-200">
+        <!-- Sidebar content here -->
+        <li>
+          <%= link_to '/' do %>
+            <p class="text-sm"><%= t "defaults.home" %></p>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to '/' do %>
+            <p class="text-sm"><%= t "defaults.sign_up" %></p>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to login_path, data: { remote: true } do %>
+            <p class="text-sm"><%= t ".login" %></p>
+          <% end %>
         </li>
       </ul>
     </div>
+</div>
+<!--
+  <nav>
+    <div class="text-white flex items-center space-x-3 lg:mx-5">
+      <%= link_to '/', class: 'hover:text-accent transition duration-200 hidden lg:flex lg:flex-col px-2' do %>
+        <p class="text-sm"><%= t "defaults.home" %></p>
+      <% end %>
+      <%= link_to '/', class: 'hover:text-accent transition tduration-200 hidden lg:flex lg:flex-col px-2' do %>
+        <p class="text-sm"><%= t "defaults.sign_up" %></p>
+      <% end %>
+      <%= link_to login_path, class: 'hover:text-accent transition tduration-200 hidden lg:flex lg:flex-col px-2' do %>
+        <p class="text-sm"><%= t ".login" %></p>
+      <% end %>
+      <%= link_to logout_path, data: { turbo_method: :delete, turbo_confirm: "ログアウトする？" }, class: 'hover:text-accent transition tduration-200 hidden lg:flex lg:flex-col px-2' do %>
+        <p class="text-sm"><%= t ".logout" %></p>
+      <% end %>
+
+      <div class="drawer drawer-end lg:hidden">
+        <input id="f" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content">
+          <label for="my-drawer-4" class="drawer-button btn btn-ghost mx-5">
+            <i class="fas fa-bars fa-lg"></i>
+          </label>
+        </div>
+        <div class="drawer-side z-10">
+          <label for="my-drawer-4" aria-label="close sidebar" class="drawer-overlay"></label>
+          <ul class="bg-primary dropdown-content z-[1] menu p-6 w-40 min-h-full">
+            <li class="hover:rounded-xl mt-4">
+              <%= link_to '/', class: 'btn btn-ghost flex items-center mx-2' do %>
+                <p class="text-sm"><%= t "defaults.home" %></p>
+              <% end %>
+            </li>
+            <li class="hover:rounded-xl mt-4">
+              <%= link_to '/', class: 'btn btn-ghost flex items-center mx-2' do %>
+                <p class="text-sm"><%= t "defaults.sign_up" %></p>
+              <% end %>
+            </li>
+            <li class="hover:rounded-xl mt-4">
+              <%= link_to logout_path, data: { turbo_method: :delete, turbo_confirm: "ログアウトしますか？" }, class: 'btn btn-ghost flex items-center mx-2' do %>
+                <p class="text-sm"><%= t ".logout" %></p>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </nav>
+-->
 </header>
