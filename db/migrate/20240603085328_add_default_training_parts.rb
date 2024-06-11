@@ -5,9 +5,8 @@ class AddDefaultTrainingParts < ActiveRecord::Migration[7.1]
       TrainingPart.create(name: part)
     end
   end
-=begin
+
   def down
     TrainingPart.where(name: ['腕', '胸部', '背中', 'お腹', '脚', '全身']).delete_all
   end
-=end
 end
