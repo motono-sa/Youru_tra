@@ -16,24 +16,24 @@
           </label>
         </div> 
         <div class="hidden lg:flex lg:items-center lg:space-x-3 ml-auto">
-          <ul class="menu menu-horizontal">
-            <!-- Navbar menu content here -->
-            <li>
-              <%= link_to '/' do %>
-                <p class="text-sm"><%= t "defaults.home" %></p>
-              <% end %>
-              </li>
-            <li>
-              <%= link_to new_user_path do %>
-                <p class="text-sm"><%= t "defaults.sign_up" %></p>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to login_path, data: { remote: true } do %>
-                <p class="text-sm"><%= t ".login" %></p>
-              <% end %>
-            </li>
-          </ul>
+        <ul class="menu menu-horizontal">
+        <!-- Navbar menu content here -->
+        <li>
+          <%= link_to '/' do %>
+            <p class="text-sm">Home</p>
+          <% end %>
+          </li>
+        <li>
+          <%= link_to new_user_path do %>
+            <p class="text-sm"><%= t('header.sign_up') %></p>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to login_path, data: { remote: true } do %>
+            <p class="text-sm"><%= t('header.login') %></p>
+          <% end %>
+        </li>
+      </ul>
         </div>
       </div>
       <!-- Page content here -->
@@ -44,17 +44,17 @@
         <!-- Sidebar content here -->
         <li>
           <%= link_to '/' do %>
-            <p class="text-sm"><%= t "defaults.home" %></p>
+            <p class="text-sm">Home</p>
           <% end %>
         </li>
         <li>
-          <%= link_to '/' do %>
-            <p class="text-sm"><%= t "defaults.sign_up" %></p>
+          <%= link_to new_user_path do %>
+            <p class="text-sm"><%= t('header.sign_up') %></p>
           <% end %>
         </li>
         <li>
           <%= link_to login_path, data: { remote: true } do %>
-            <p class="text-sm"><%= t ".login" %></p>
+            <p class="text-sm"><%= t('header.login') %></p>
           <% end %>
         </li>
       </ul>

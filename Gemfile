@@ -76,3 +76,6 @@ gem 'dotenv-rails'
 
 # ユーザー認証
 gem 'sorcery'
+
+# i18n
+gem 'rails-i18n', '~> 7.0.0'
