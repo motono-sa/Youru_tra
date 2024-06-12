@@ -1,4 +1,6 @@
 class VideosController < ApplicationController
+  skip_before_action :require_login, only: %i[index show search]
+
   def search
     training_part = TrainingPart.find(params[:training_part_id])
     service = YoutubeService.new

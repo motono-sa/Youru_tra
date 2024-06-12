@@ -24,13 +24,8 @@
               <% end %>
             </li>
             <li>
-              <%= link_to new_user_path do %>
-                <p class="text-sm"><%= t('header.sign_up') %></p>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to login_path, data: { remote: true } do %>
-                <p class="text-sm"><%= t('header.login') %></p>
+              <%= link_to logout_path, data: { turbo_method: :delete, turbo_confirm: "ログアウトしますか？" } do %>
+                <p class="text-sm"><%= t('header.logout') %></p>
               <% end %>
             </li>
           </ul>
@@ -48,63 +43,11 @@
           <% end %>
         </li>
         <li>
-          <%= link_to new_user_path do %>
-            <p class="text-sm"><%= t('header.sign_up') %></p>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to login_path, data: { remote: true } do %>
-            <p class="text-sm"><%= t('header.login') %></p>
+          <%= link_to logout_path, data: { turbo_method: :delete, turbo_confirm: "ログアウトしますか？" } do %>
+            <p class="text-sm"><%= t('header.logout') %></p>
           <% end %>
         </li>
       </ul>
     </div>
-</div>
-<!--
-  <nav>
-    <div class="text-white flex items-center space-x-3 lg:mx-5">
-      <%= link_to '/', class: 'hover:text-accent transition duration-200 hidden lg:flex lg:flex-col px-2' do %>
-        <p class="text-sm"><%= t "defaults.home" %></p>
-      <% end %>
-      <%= link_to '/', class: 'hover:text-accent transition tduration-200 hidden lg:flex lg:flex-col px-2' do %>
-        <p class="text-sm"><%= t "defaults.sign_up" %></p>
-      <% end %>
-      <%= link_to login_path, class: 'hover:text-accent transition tduration-200 hidden lg:flex lg:flex-col px-2' do %>
-        <p class="text-sm"><%= t ".login" %></p>
-      <% end %>
-      <%= link_to logout_path, data: { turbo_method: :delete, turbo_confirm: "ログアウトする？" }, class: 'hover:text-accent transition tduration-200 hidden lg:flex lg:flex-col px-2' do %>
-        <p class="text-sm"><%= t ".logout" %></p>
-      <% end %>
-
-      <div class="drawer drawer-end lg:hidden">
-        <input id="f" type="checkbox" class="drawer-toggle" />
-        <div class="drawer-content">
-          <label for="my-drawer-4" class="drawer-button btn btn-ghost mx-5">
-            <i class="fas fa-bars fa-lg"></i>
-          </label>
-        </div>
-        <div class="drawer-side z-10">
-          <label for="my-drawer-4" aria-label="close sidebar" class="drawer-overlay"></label>
-          <ul class="bg-primary dropdown-content z-[1] menu p-6 w-40 min-h-full">
-            <li class="hover:rounded-xl mt-4">
-              <%= link_to '/', class: 'btn btn-ghost flex items-center mx-2' do %>
-                <p class="text-sm"><%= t "defaults.home" %></p>
-              <% end %>
-            </li>
-            <li class="hover:rounded-xl mt-4">
-              <%= link_to '/', class: 'btn btn-ghost flex items-center mx-2' do %>
-                <p class="text-sm"><%= t "defaults.sign_up" %></p>
-              <% end %>
-            </li>
-            <li class="hover:rounded-xl mt-4">
-              <%= link_to logout_path, data: { turbo_method: :delete, turbo_confirm: "ログアウトしますか？" }, class: 'btn btn-ghost flex items-center mx-2' do %>
-                <p class="text-sm"><%= t ".logout" %></p>
-              <% end %>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </nav>
--->
+  </div>
 </header>
