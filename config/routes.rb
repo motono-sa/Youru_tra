@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
 
+  get 'search_limit_videos', to: 'videos#search_limit'
   resources :videos, only: %i[index show] do
     collection do
       get :search, to: 'videos#search', as: :search

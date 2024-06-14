@@ -1,0 +1,14 @@
+<h1>検索制限</h1>
+<p>今日は既に検索を行いました。再度検索するには明日までお待ちください。</p>
+
+<% if @video && @video.url.present? %>
+  <h2>今日検索した動画</h2>
+  <p><strong>タイトル:</strong> <%= @video.title %></p>
+  <% if @video.id.present? %>
+    <p><%= link_to '動画を見る', video_path(@video.id) %></p>
+  <% else %>
+    <p>エラーにより動画の詳細ページに移動できません。</br>本日は諦めて下さい。</p>
+  <% end %>
+<% else %>
+  <p>検索結果はありません。</p>
+<% end %>

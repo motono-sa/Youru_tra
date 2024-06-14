@@ -10,9 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_09_024745) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_14_152505) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "search_histories", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "ip_address"
+    t.date "searched_on", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "training_part_id", null: false
+    t.index ["ip_address"], name: "index_search_histories_on_ip_address"
+    t.index ["searched_on"], name: "index_search_histories_on_searched_on"
+    t.index ["user_id"], name: "index_search_histories_on_user_id"
+  end
 
   create_table "training_parts", force: :cascade do |t|
     t.string "name"
@@ -39,6 +51,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_09_024745) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name", null: false
+    t.string "last_searched_video_url"
+    t.string "last_searched_video_title"
+    t.datetime "last_search_at"
+    t.integer "last_searched_video_id"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
