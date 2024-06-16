@@ -22,12 +22,14 @@ class VideosController < ApplicationController
     @video = Video.find(params[:id])
   end
 
+  # 検索制限の時に表示されるページ
   def search_limit
     @video = load_last_search_result
   end
 
   private
 
+  # 検索可能か確認する
   def can_search?
     if current_user
       current_user.can_search?
@@ -37,6 +39,7 @@ class VideosController < ApplicationController
     end
   end
 
+  # 検索を記録する
   def record_search
     if current_user
       current_user.record_search
@@ -45,6 +48,7 @@ class VideosController < ApplicationController
     end
   end
 
+  # 検索制限をチェックして、制限されている場合は検索制限時のページへいく
   def check_search_limit
     unless can_search?
       flash[:alert] = "1日1回の検索制限があります。"
@@ -52,6 +56,7 @@ class VideosController < ApplicationController
     end
   end
 
+  # 検索結果をユーザーもしくはセッションに保存する
   def save_search_result(video)
     if current_user
       current_user.update(last_searched_video_url: video.url, last_searched_video_title: video.title, last_searched_video_id: video.id)
@@ -62,6 +67,7 @@ class VideosController < ApplicationController
     end
   end
 
+  # 最後に検索した動画の情報を読み込む
   def load_last_search_result
     if current_user
       OpenStruct.new(url: current_user.last_searched_video_url, title: current_user.last_searched_video_title, id: current_user.last_searched_video_id)
