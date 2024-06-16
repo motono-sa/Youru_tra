@@ -7,13 +7,15 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 255 }
   validates :email, presence: true, uniqueness: true
 
-  # ユーザーがその日初めて検索するか確認するメソッド
+  # ユーザーがその日初めて検索するか確認する
   def can_search?
+    # 検索していないか
     return true if last_search_at.nil?
+    # 最後に検索した日が今日じゃないか
     last_search_at < Time.zone.now.beginning_of_day
   end
 
-  # 検索を記録するメソッド
+  # 検索した日時を記録する
   def record_search
     update(last_search_at: Time.zone.now)
   end
