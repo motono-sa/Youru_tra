@@ -1,15 +1,15 @@
-<div>
-  <h1 class="font-bold text-4xl">TrainingParts#index</h1>
-  <p>Find me in app/views/training_parts/index.html.erb</p>
-  <h1>鍛えたい部位を選択してください</h1>
-
-  <%= form_with url: search_videos_path, method: :get, local: true do |f| %>
-    <div>
-      <%= f.label :training_part_id, "部位" %>
-      <%= f.select :training_part_id, options_from_collection_for_select(@training_parts, :id, :name) %>
-    </div>
-    <div>
-      <%= f.submit t('helpers.submit.search') %>
-    </div>
-  <% end %>
+<div class="flex flex-col w-2/4 mx-auto">
+  <div class="divider divider-primary my-10">
+    <h1>鍛えたい部位を選択してください</h1>
+  </div>
+  <div class="mx-auto w-2/4">
+    <%= form_with url: search_videos_path, method: :get, local: true do |f| %>
+      <div class="form-control">
+        <%= f.select :training_part_id, options_from_collection_for_select(@training_parts, :id, :name), {}, { class: "select select-primary" } %>
+      </div>
+      <div class="text-center my-5">
+        <%= f.submit t('helpers.submit.search'), class: "btn btn-secondary text-base-200" %>
+      </div>
+    <% end %>
+  </div>
 </div>

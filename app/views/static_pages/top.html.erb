@@ -1,33 +1,40 @@
-<div class="flex flex-col justify-center items-center">
-  <div class="mx-auto px-10 flex flex-col justify-center items-center">
-    <div class="flex flex-col justify-center items-center mb-10">
-      <h1  class="text-3xl font-bold text-blue-500">YouruTra_top</h1>
-      <%= link_to "使ってみる", training_parts_path, class: "btn btn-secondary text-base-200 mb-10", data: { remote: true } %>
-      <h2 class="text-2xl md:text-3xl text-center">サービス概要</h2>
-      <p>Youtubeでどの筋トレ動画をするか迷うあなたへ届けます</p>
+<div class="mx-auto flex flex-col justify-center items-center w-2/4">
+  <%= link_to "ひとまず使ってみる", training_parts_path, class: "btn btn-secondary text-base-200 mt-10", data: { remote: true } %>
+  <div>
+    <div class="divider divider-primary my-10">
+      <h1>サービス概要</h1>
     </div>
-    <div class="grid grid-cols-1 gap-2">
-      <h2 class="text-2xl md:text-3xl mb-5 text-center">Youるトレの使い方</h2>
-      <div class="bg-white p-6 rounded-lg shadow-lg mb-5">
-        <h1 class="text-xl md:text-2xl text-center">かきくけお</h1>
-        <div class="text-left text-sm md:text-lg">
-          <p class="mb-5">あああああああああああああいうえお</p>
-          <p>あああああああああああああいうえおう。</p>
-        </div>
+    <p class="pb-5 text-center">Youtubeでどの筋トレ動画をするか迷うあなたへ届けます</p>
+    <div class="divider divider-primary my-10">
+      <h1>Youるトレの使い方</h1>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-lg text-center mb-5">
+      <h3 class="text-lg md:text-base text-center font-semibold">鍛えたい部位を選択する</h3>
+      <div class="text-base md:text-sm">
+        <%= image_tag "explanation1.png", class: "mx-auto my-5" %>
+        <p class="mb-5">鍛えたい部位を選択して下さい</p>
       </div>
     </div>
-      <%= link_to "使ってみる", training_parts_path, class: "btn btn-secondary text-base-200 mb-5", data: { remote: true } %>
-
-    <!-- コメントアウト
-    <div>
-      <button class="btn">BUTTON</button>
-      <button class="btn btn-primary">PRIMARY</button>
-      <button class="btn btn-secondary">SECONDARY</button>
-      <button class="btn btn-accent">ACCENT</button>
-      <button class="btn btn-ghost">GHOST</button>
-      <button class="btn btn-link">LINK</button>
-      <button class="btn btn-secondary">btn btn-secondary</button>
+    <div class="bg-white p-6 rounded-lg shadow-lg text-center mb-5">
+      <h3 class="text-lg md:text-base text-center font-semibold">動画を見るボタンを押す</h3>
+      <div class="text-base md:text-sm">
+        <%= image_tag "explanation2.png", class: "mx-auto my-5" %>
+        <p class="mb-5">動画を見るボタンを押すと動画の表示画面へ移ります</p>
+      </div>
     </div>
-    -->
+
   </div>
+  <%= link_to "使ってみる", training_parts_path, class: "btn btn-secondary text-base-200 mb-5", data: { remote: true } %>
+
+  <!-- コメントアウト
+  <div>
+    <button class="btn">BUTTON</button>
+    <button class="btn btn-primary">PRIMARY</button>
+    <button class="btn btn-secondary">SECONDARY</button>
+    <button class="btn btn-accent">ACCENT</button>
+    <button class="btn btn-ghost">GHOST</button>
+    <button class="btn btn-link">LINK</button>
+    <button class="btn btn-secondary">btn btn-secondary</button>
+  </div>
+  -->
 </div>

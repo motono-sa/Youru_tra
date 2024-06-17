@@ -1,6 +1,13 @@
-<h1><%= @video.title %></h1>
-<div class="aspect-video">
-  <iframe width="560" height="315" src="<%= @video.embed_url %>" frameborder="0" allowfullscreen></iframe>
+<div class="flex justify-center mb-10">
+  <div class="w-full max-w-4xl">
+    <div class="divider divider-primary my-10 text-center">
+      <h1><%= @video.title %></h1>
+    </div>
+
+    <div class="aspect-video">
+      <iframe class="w-full aspect-video" src="<%= @video.embed_url %>" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
 </div>
 <%
 =begin %>
