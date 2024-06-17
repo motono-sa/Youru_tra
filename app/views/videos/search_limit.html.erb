@@ -1,14 +1,20 @@
-<h1>検索制限</h1>
-<p>今日は既に検索を行いました。再度検索するには明日までお待ちください。</p>
-
-<% if @video && @video.url.present? %>
-  <h2>今日検索した動画</h2>
-  <p><strong>タイトル:</strong> <%= @video.title %></p>
-  <% if @video.id.present? %>
-    <p><%= link_to '動画を見る', video_path(@video.id) %></p>
-  <% else %>
-    <p>エラーにより動画の詳細ページに移動できません。</br>本日は諦めて下さい。</p>
-  <% end %>
-<% else %>
-  <p>検索結果はありません。</p>
-<% end %>
+<div class="flex flex-col w-2/4">
+  <div class="divider divider-primary my-10">
+    <h1>検索制限</h1>
+  </div>
+  
+  <p class="text-center">今日は既に検索を行いました。<br>再度検索するには明日までお待ちください。</p>
+  <div class="text-center">
+    <% if @video && @video.url.present? %>
+      <h2>今日検索した動画</h2>
+      <p class="text-center"><%= @video.title %></p>
+      <% if @video.id.present? %>
+        <%= link_to '動画を見る', video_path(@video.id), class: "btn btn-secondary text-base-200 mt-10 mb-10", data: { remote: true } %>
+      <% else %>
+        <p>エラーにより動画の詳細ページに移動できません。<br>申し訳ないですが本日は諦めて下さい。</p>
+      <% end %>
+    <% else %>
+      <p>検索結果はありません。</p>
+    <% end %>
+  </div>
+</div>

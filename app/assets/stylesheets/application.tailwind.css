@@ -11,3 +11,54 @@
 }
 
 */
+@layer components {
+  h1 {
+    @apply text-base md:text-lg lg:text-xl xl:text-2xl font-semibold; /* DaisyUIを使用する場合 */
+  }
+  h2 {
+    @apply outline-primary outline rounded-md text-primary text-sm md:text-base lg:text-lg xl:text-xl font-medium text-center inline-block mt-10 mb-3 py-2 px-3;
+    /* または */
+    /*
+    font-size: 1.75rem;
+    */
+    /* カスタムスタイルを使用する場合 */
+    /*
+    font-weight: semibold;
+    */
+  }
+ /* スマートフォン用のスタイル */
+  @media (max-width: 639px) {
+    .aspect-video {
+      aspect-ratio: 9/16; /* 16:9のアスペクト比 */
+      max-width: 100%;
+    }
+  }
+
+  /* タブレット用のスタイル */
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .aspect-video {
+      aspect-ratio: 16/9; /* 16:9のアスペクト比 */
+      max-width: 100%;
+    }
+  }
+
+  /* PC用のスタイル */
+  @media (min-width: 1024px) {
+    .aspect-video {
+      aspect-ratio: 21/9; /* 21:9のアスペクト比 */
+      max-width: 100%;
+    }
+  }
+  /* ドロワーが閉じている状態の幅調整 */
+  .drawer-content {
+    width: 100%;
+  }
+
+  /* ドロワーが開いた状態の幅調整 */
+  @media (max-width: 1023px) {
+    .drawer-content.drawer-open {
+      width: calc(100% - 20rem); /* ドロワーの幅に合わせて調整 */
+    }
+  }
+
+}

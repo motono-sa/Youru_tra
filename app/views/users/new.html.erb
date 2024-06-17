@@ -1,5 +1,7 @@
-  <div class="my-5 mx-5 w-2/4 items-center">
-    <h1>ユーザー登録</h1>
+  <div class="flex flex-col w-2/4 mx-auto mb-10">
+    <div class="divider divider-primary my-10">
+      <h1>ユーザー登録</h1>
+    </div>
     <%= form_with model: @user do |f| %>
       <div class="mb-3">
         <%= f.label :name, class: "form-label" %>
@@ -29,7 +31,7 @@
           <%= f.password_field :password, class: "grow border-none border-0 focus:ring-0", placeholder: "Password" %>
         </label>
       </div>
-      <div class="mb-3">
+      <div class="mb-5">
         <%= f.label :password_confirmation, class: "form-label" %>
         <label class="input input-bordered flex items-center gap-2">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 opacity-70">
