@@ -32,6 +32,11 @@
       aspect-ratio: 9/16; /* 16:9のアスペクト比 */
       max-width: 100%;
     }
+    /* アイコン */
+    .w-4, .h-4 {
+      width: 20px;
+      height: 20px;
+    }
   }
 
   /* タブレット用のスタイル */
@@ -39,6 +44,12 @@
     .aspect-video {
       aspect-ratio: 16/9; /* 16:9のアスペクト比 */
       max-width: 100%;
+    }
+
+    /* アイコン */
+    .w-4, .h-4 {
+      width: 30px;
+      height: 30px;
     }
   }
 
@@ -48,16 +59,11 @@
       aspect-ratio: 21/9; /* 21:9のアスペクト比 */
       max-width: 100%;
     }
-  }
-  /* ドロワーが閉じている状態の幅調整 */
-  .drawer-content {
-    width: 100%;
-  }
 
-  /* ドロワーが開いた状態の幅調整 */
-  @media (max-width: 1023px) {
-    .drawer-content.drawer-open {
-      width: calc(100% - 20rem); /* ドロワーの幅に合わせて調整 */
+    /* アイコン */
+    .w-4, .h-4 {
+      width: 40px;
+      height: 40px;
     }
   }
 
