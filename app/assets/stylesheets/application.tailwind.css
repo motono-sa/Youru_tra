@@ -32,6 +32,9 @@
       aspect-ratio: 9/16; /* 16:9のアスペクト比 */
       max-width: 100%;
     }
+    .icon-hidden-on-mobile {
+      display: none;
+    }
   }
 
   /* タブレット用のスタイル */
