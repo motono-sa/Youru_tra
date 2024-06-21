@@ -32,10 +32,6 @@
       aspect-ratio: 9/16; /* 16:9のアスペクト比 */
       max-width: 100%;
     }
-    /* アイコン */
-    .w-4, .h-4 {
-      transform: scale(3);
-    }
   }
 
   /* タブレット用のスタイル */
@@ -44,11 +40,6 @@
       aspect-ratio: 16/9; /* 16:9のアスペクト比 */
       max-width: 100%;
     }
-
-    /* アイコン */
-    .w-4, .h-4 {
-      transform: scale(1);
-    }
   }
 
   /* PC用のスタイル */
@@ -56,11 +47,6 @@
     .aspect-video {
       aspect-ratio: 21/9; /* 21:9のアスペクト比 */
       max-width: 100%;
-    }
-
-    /* アイコン */
-    .w-4, .h-4 {
-      transform: scale(1);
     }
   }
 
