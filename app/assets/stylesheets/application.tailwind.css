@@ -35,6 +35,9 @@
     .icon-hidden-on-mobile {
       display: none;
     }
+    .width_ratio {
+      width: 60%;
+    }
   }
 
   /* タブレット用のスタイル */
@@ -43,6 +46,9 @@
       aspect-ratio: 16/9; /* 16:9のアスペクト比 */
       max-width: 100%;
     }
+    .width_ratio {
+      width: 30%;
+    }
   }
 
   /* PC用のスタイル */
@@ -50,6 +56,9 @@
     .aspect-video {
       aspect-ratio: 21/9; /* 21:9のアスペクト比 */
       max-width: 100%;
+    }
+    .width_ratio {
+      width: 20%;
     }
   }
 
