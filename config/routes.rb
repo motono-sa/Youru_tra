@@ -19,6 +19,10 @@ Rails.application.routes.draw do
       get :search, to: 'videos#search', as: :search
     end
   end
-  resources :users, only: %i[new create]
+
+  get 'mypage', to: 'users#show'
+  get 'mypage/edit', to: 'users#edit'
+  patch 'mypage', to: 'users#update'
+  resources :users, only: %i[new create show edit update]
   resources :training_parts, only: %i[index]
 end

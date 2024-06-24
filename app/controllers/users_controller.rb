@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: %i[new create]
+  before_action :set_user, only: [:show, :edit, :update]
 
   def new
     @user = User.new
@@ -15,7 +16,27 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @user
+  end
+
+  def edit
+    @user
+  end
+
+  def update
+    if @user.update(user_params)
+      redirect_to mypage_path, success: 'ユーザー情報が更新されました。'
+    else
+      render :edit
+    end
+  end
+
   private
+
+  def set_user
+    @user = current_user
+  end
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
