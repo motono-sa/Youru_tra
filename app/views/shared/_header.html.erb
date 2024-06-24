@@ -24,6 +24,11 @@
               <% end %>
             </li>
             <li>
+              <%= link_to mypage_path do %>
+                <p class="text-sm"><%= t('header.mypage') %></p>
+              <% end %>
+            </li>           
+            <li>
               <%= link_to logout_path, data: { turbo_method: :delete, turbo_confirm: "ログアウトしますか？" } do %>
                 <p class="text-sm"><%= t('header.logout') %></p>
               <% end %>
@@ -35,12 +40,16 @@
     <div class="drawer-side">
       <label for="my-drawer-3" aria-label="close sidebar" class="drawer-overlay"></label> 
       <ul class="menu p-4 width_ratio min-h-full bg-base-200">
-        <!-- Sidebar content here -->
         <li>
           <%= link_to '/' do %>
             <p class="text-sm">Home</p>
           <% end %>
         </li>
+        <li>
+          <%= link_to mypage_path do %>
+            <p class="text-sm"><%= t('header.mypage') %></p>
+          <% end %>
+        </li> 
         <li>
           <%= link_to logout_path, data: { turbo_method: :delete, turbo_confirm: "ログアウトしますか？" } do %>
             <p class="text-sm"><%= t('header.logout') %></p>

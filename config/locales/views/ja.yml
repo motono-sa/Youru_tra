@@ -10,7 +10,7 @@ ja:
       password: パスワード
   user_sessions:
     new:
-      title: ログイン
+      title: タイトル
       login: ログイン
       to_register_page: 登録ページへ
       password_forget: パスワードをお忘れの方はこちら
@@ -30,3 +30,4 @@ ja:
     login: ログイン
     sign_up: ユーザー登録
     logout: ログアウト
+    mypage: マイページ

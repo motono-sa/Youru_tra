@@ -1,0 +1,15 @@
+<div class="divider divider-primary my-10">
+  <h1>マイページ</h1>
+</div>
+
+<p>
+  <strong>名前:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>メールアドレス:</strong>
+  <%= @user.email %>
+</p>
+
+<%= link_to '編集', mypage_edit_path %>

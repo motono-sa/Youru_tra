@@ -1,0 +1,23 @@
+<div class="flex flex-col w-4/5 mx-auto mb-10">
+  <div class="divider divider-primary my-10">
+    <h1>マイページ編集</h1>
+  </div>
+
+  <%= form_with model: @user, url: mypage_path, local: true, method: :patch do |form| %>
+    <div>
+      <%= form.label :name, '名前' %><br>
+      <%= form.text_field :name %>
+    </div>
+
+    <div>
+      <%= form.label :email, 'メールアドレス' %><br>
+      <%= form.email_field :email %>
+    </div>
+
+    <div>
+      <%= form.submit '更新' %>
+    </div>
+  <% end %>
+
+  <%= link_to 'キャンセル', mypage_path %>
+</div>
