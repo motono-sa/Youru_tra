@@ -1,15 +1,16 @@
-<div class="divider divider-primary my-10">
-  <h1>マイページ</h1>
+<div class="flex flex-col w-4/5 mx-auto mb-10">
+  <div class="divider divider-primary my-10">
+    <h1>マイページ</h1>
+  </div>
+  <div class="bg-white p-6 rounded-lg shadow-lg text-center mb-5">
+    <h3 class="text-lg md:text-base text-center font-semibold"><%= t('helpers.label.name') %></h3>
+    <div class="text-base md:text-sm">
+      <p class="mb-5"><%= @user.name %></p>
+    </div>
+    <h3 class="text-lg md:text-base text-center font-semibold"><%= t('helpers.label.email') %></h3>
+    <div class="text-base md:text-sm">
+      <p class="mb-5"><%= @user.email %></p>
+    </div>
+  </div>
+  <%= link_to "編集", mypage_edit_path, class: "mx-auto flex flex-col justify-center btn btn-secondary  text-base-200" %>
 </div>
-
-<p>
-  <strong>名前:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
-  <strong>メールアドレス:</strong>
-  <%= @user.email %>
-</p>
-
-<%= link_to '編集', mypage_edit_path %>

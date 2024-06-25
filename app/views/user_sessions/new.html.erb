@@ -22,12 +22,7 @@
         <%= f.password_field :password, class: "grow border-none border-0 focus:ring-0", placeholder: "Password" %>
       </label>
     </div>
-    <%= f.submit "ログイン", class: "mx-auto flex flex-col justify-center btn btn-secondary text-base-200" %>
+    <%= f.submit "ログイン", class: "mb-5 mx-auto flex flex-col justify-center btn btn-secondary text-base-200" %>
   <% end %>
-</div>
-
-
-</div>
-<div class='text-center'>
-  <%= link_to 'ユーザー登録ページへ', new_user_path, class: "ink link-primary" %>
+  <%= link_to "ユーザー登録ページへ", new_user_path, class: "mx-auto flex flex-col justify-center btn btn-outline btn-secondary" %>
 </div>

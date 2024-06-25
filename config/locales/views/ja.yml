@@ -8,6 +8,7 @@ ja:
     label:
       email: メールアドレス
       password: パスワード
+      name: 名前
   user_sessions:
     new:
       title: タイトル
@@ -26,6 +27,8 @@ ja:
     create:
       success: ユーザー登録が完了しました
       failure: ユーザー登録に失敗しました
+    show:
+      name: 名前
   header:
     login: ログイン
     sign_up: ユーザー登録
