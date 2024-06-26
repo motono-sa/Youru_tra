@@ -13,8 +13,7 @@ class VideosController < ApplicationController
       record_search
       save_search_result(@video)
     else
-      flash[:alert] = "1日1回の検索制限があります。"
-      redirect_to search_limit_videos_path
+      redirect_to search_limit_videos_path, warning: '1日1回の検索制限があります'
     end
   end
 
@@ -51,8 +50,7 @@ class VideosController < ApplicationController
   # 検索制限をチェックして、制限されている場合は検索制限時のページへいく
   def check_search_limit
     unless can_search?
-      flash[:alert] = "1日1回の検索制限があります。"
-      redirect_to search_limit_videos_path
+      redirect_to search_limit_videos_path, warning: '1日1回の検索制限があります'
     end
   end
 
