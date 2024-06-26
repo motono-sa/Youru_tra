@@ -70,9 +70,9 @@ class VideosController < ApplicationController
   # 最後に検索した動画の情報を読み込む
   def load_last_search_result
     if current_user
-      OpenStruct.new(url: current_user.last_searched_video_url, title: current_user.last_searched_video_title, id: current_user.last_searched_video_id)
+      VideoStruct.new(url: current_user.last_searched_video_url, title: current_user.last_searched_video_title, id: current_user.last_searched_video_id)
     else
-      OpenStruct.new(url: session[:last_searched_video_url], title: session[:last_searched_video_title], id: session[:last_searched_video_id])
+      VideoStruct.new(url: session[:last_searched_video_url], title: session[:last_searched_video_title], id: session[:last_searched_video_id])
     end
   end
 end
