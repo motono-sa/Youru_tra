@@ -24,5 +24,9 @@
     </div>
     <%= f.submit "ログイン", class: "mb-5 mx-auto flex flex-col justify-center btn btn-secondary text-base-200" %>
   <% end %>
-  <%= link_to "ユーザー登録ページへ", new_user_path, class: "mx-auto flex flex-col justify-center btn btn-outline btn-secondary" %>
+  <div class="flex justify-center items-center gap-4 ">
+    <%= link_to "ユーザー登録ページへ", new_user_path, class: "btn btn-outline btn-secondary hover-text-slate-200" %>
+    <%= link_to "Passwordをお忘れの方はコチラ", new_password_reset_path, class: "btn btn-outline btn-accent hover-text-slate-200" %>
+  </dev>  
+
 </div>
