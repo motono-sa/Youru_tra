@@ -34,3 +34,13 @@ ja:
     sign_up: ユーザー登録
     logout: ログアウト
     mypage: マイページ
+  password_resets:
+    new:
+      title: パスワードリセット申請
+    edit:
+      title: パスワードリセット
+    create:
+      success: パスワードリセットを送信しました
+    update:
+      success: パスワードを変更しました
+      fail: パスワードの変更に失敗しました
