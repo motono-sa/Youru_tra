@@ -10,6 +10,10 @@ class VideosController < ApplicationController
       @video = Video.find_or_create_by(url: "https://www.youtube.com/watch?v=#{video_data['id']['videoId']}") do |video|
         video.title = video_data['snippet']['title']
       end
+      # カレンダーに検索した動画のタイトルを表示するために記録する
+      if @video && current_user
+        current_user.calendar_search_title_histories.create(video: @video, search_date: Date.today)
+      end
       record_search
       save_search_result(@video)
     else
