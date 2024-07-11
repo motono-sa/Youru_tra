@@ -12,14 +12,12 @@
       <p class="mb-5"><%= @user.email %></p>
     </div>
   </div>
-  <div>
-    <%= month_calendar events: @calendar_search_title_histories do |date, calendar_search_title_histories| %>
-      <div>
-        <% calendar_search_title_histories.each do |search_history| %>
-          <%= search_history.video.title %><br>
-        <% end %>
-      </div>
-    <% end %>
+  <div class="bg-white p-6 rounded-lg shadow-lg text-center mb-5">
+    <h3 class="text-lg md:text-base text-center font-semibold">カレンダー</h3>
+    <div class="month-calendar">
+      <%= month_calendar events: @calendar_search_title_histories do |date, calendar_search_title_histories| %>
+      <% end %>
+    </div>
   </div>
   <%= link_to "編集", mypage_edit_path, class: "mx-auto flex flex-col justify-center btn btn-secondary  text-base-200" %>
 </div>
