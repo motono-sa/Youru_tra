@@ -13,8 +13,35 @@
  *= require_tree .
  *= require_self
  */
- .hover-text-slate-200:hover {
+
+.hover-text-slate-200:hover {
   color: #e2e8f0 !important; /* これはslate-200の色コードです */
 }
 
 @import "simple_calendar";
+
+
+.month-calendar {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.month-calendar .table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.month-calendar th,
+.month-calendar td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.month-calendar .calendar-day {
+  position: relative;
+}
+
+.month-calendar .events .event {
+  margin-top: 5px;
+}

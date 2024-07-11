@@ -27,6 +27,7 @@
     */
   }
 
+  /* ボタンに関して */
   .hover-text-slate-200:hover {
     @apply text-slate-200;
   }
@@ -37,9 +38,11 @@
       aspect-ratio: 9/16; /* 16:9のアスペクト比 */
       max-width: 100%;
     }
+
     .icon-hidden-on-mobile {
       display: none;
     }
+
     .width_ratio {
       width: 60%;
     }
@@ -51,6 +54,7 @@
       aspect-ratio: 16/9; /* 16:9のアスペクト比 */
       max-width: 100%;
     }
+
     .width_ratio {
       width: 30%;
     }
@@ -62,9 +66,36 @@
       aspect-ratio: 21/9; /* 21:9のアスペクト比 */
       max-width: 100%;
     }
+
     .width_ratio {
       width: 20%;
     }
   }
+
+  /* カレンダーに関して */
+  .simple-calendar {
+    .calendar-heading nav {
+      text-align: left;
+    }
+
+    .calendar-heading nav a {
+      @apply link link-primary;
+    }
+
+    .day {
+      @apply text-secondary;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .day .event {
+      @apply text-neutral;
+      text-align: center;
+    }
+    .today {
+      @apply text-primary font-semibold;
+    }
+  }
+  
 
 }
