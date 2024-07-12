@@ -18,12 +18,14 @@
   color: #e2e8f0 !important; /* これはslate-200の色コードです */
 }
 
-@import "simple_calendar";
-
+.drawer-side {
+  z-index: 1000;
+}
 
 .month-calendar {
   width: 100%;
   border-collapse: collapse;
+  z-index: 1;
 }
 
 .month-calendar .table {
@@ -34,7 +36,7 @@
 .month-calendar th,
 .month-calendar td {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 3px;
   text-align: center;
 }
 
