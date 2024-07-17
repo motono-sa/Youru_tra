@@ -10,19 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_04_194415) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_28_195754) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "calendar_search_title_histories", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "video_id", null: false
-    t.date "search_date", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_calendar_search_title_histories_on_user_id"
-    t.index ["video_id"], name: "index_calendar_search_title_histories_on_video_id"
-  end
 
   create_table "search_histories", force: :cascade do |t|
     t.integer "user_id"
@@ -80,8 +70,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_04_194415) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "calendar_search_title_histories", "users"
-  add_foreign_key "calendar_search_title_histories", "videos"
   add_foreign_key "user_video_searches", "training_parts"
   add_foreign_key "user_video_searches", "users"
   add_foreign_key "user_video_searches", "videos"

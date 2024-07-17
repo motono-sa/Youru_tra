@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
   def show
     @user
-    @calendar_search_title_histories = @user.calendar_search_title_histories
+    @user_video_searches = @user.user_video_searches
   end
 
   def edit
