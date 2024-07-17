@@ -10,8 +10,9 @@ class User < ApplicationRecord
   validates :reset_password_token, uniqueness: true, allow_nil: true
 
   # カレンダーに検索した動画のタイトルを表示するため
-  has_many :calendar_search_title_histories
-  has_many :videos, through: :calendar_search_title_histories
+  has_many :user_video_searches
+  has_many :videos, through: :user_video_searches
+  has_many :training_parts, through: :user_video_searches
 
   # ユーザーがその日初めて検索するか確認する
   def can_search?
