@@ -28,7 +28,8 @@
                 <div class="events">
                   <% calendar.sorted_events_for(day).each do |event| %>
                     <div class="event">
-                      <%= event.video.title %><br>
+                      <p class="badge badge-secondary text-base-200"><%= event.training_part.name %></p>
+                      <p><%= event.video.title %></p>
                     </div>
                   <% end %>
                 </div>
