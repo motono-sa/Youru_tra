@@ -111,4 +111,5 @@ Rails.application.configure do
   }
 
   config.action_mailer.default_url_options = { host: ENV['APP_HOST'] }
+  config.time_zone = 'Tokyo'
 end
