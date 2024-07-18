@@ -89,13 +89,12 @@
     }
 
     .day .event {
-      @apply text-neutral;
+      @apply text-neutral-700 font-normal;
       text-align: center;
     }
     .today {
       @apply text-primary font-semibold;
+      background-color: #E7F6FD;
     }
   }
-  
-
 }
