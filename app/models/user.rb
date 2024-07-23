@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
 
-  validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
+  validates :password, length: { minimum: 6 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
   validates :name, presence: true, length: { maximum: 255 }
@@ -10,9 +10,8 @@ class User < ApplicationRecord
   validates :reset_password_token, uniqueness: true, allow_nil: true
 
   # カレンダーに検索した動画のタイトルを表示するため
-  has_many :user_video_searches
+  has_many :user_video_searches, dependent: :destroy
   has_many :videos, through: :user_video_searches
-  has_many :training_parts, through: :user_video_searches
 
   # ユーザーがその日初めて検索するか確認する
   def can_search?

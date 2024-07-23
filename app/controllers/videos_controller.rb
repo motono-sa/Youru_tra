@@ -9,10 +9,11 @@ class VideosController < ApplicationController
       video_data = service.search_random_video(training_part.name)
       @video = Video.find_or_create_by(url: "https://www.youtube.com/watch?v=#{video_data['id']['videoId']}") do |video|
         video.title = video_data['snippet']['title']
+        video.training_part = training_part
       end
       # カレンダーに検索した動画のタイトルを表示するために記録する
       if @video && current_user
-        current_user.user_video_searches.create(video: @video, date: Time.zone.today, training_part: training_part)
+        current_user.user_video_searches.create(video: @video, date: Time.zone.today)
       end
       record_search
       save_search_result(@video)
