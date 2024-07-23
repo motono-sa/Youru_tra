@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_28_195754) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_23_205138) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,12 +34,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_28_195754) do
 
   create_table "user_video_searches", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "training_part_id", null: false
     t.bigint "video_id", null: false
-    t.date "date"
+    t.date "date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["training_part_id"], name: "index_user_video_searches_on_training_part_id"
     t.index ["user_id"], name: "index_user_video_searches_on_user_id"
     t.index ["video_id"], name: "index_user_video_searches_on_video_id"
   end
@@ -64,13 +62,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_28_195754) do
   end
 
   create_table "videos", force: :cascade do |t|
-    t.string "title"
-    t.string "url"
+    t.bigint "training_part_id", null: false
+    t.string "title", null: false
+    t.string "url", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["training_part_id"], name: "index_videos_on_training_part_id"
   end
 
-  add_foreign_key "user_video_searches", "training_parts"
   add_foreign_key "user_video_searches", "users"
   add_foreign_key "user_video_searches", "videos"
+  add_foreign_key "videos", "training_parts"
 end

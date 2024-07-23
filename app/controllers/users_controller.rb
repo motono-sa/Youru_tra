@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
   def show
     @user
-    @user_video_searches = @user.user_video_searches
+    @user_video_searches = @user.user_video_searches.includes(video: :training_part)
   end
 
   def edit
