@@ -13,16 +13,14 @@ class User < ApplicationRecord
   has_many :user_video_searches, dependent: :destroy
   has_many :videos, through: :user_video_searches
 
+  # その日に検索したか調べるため
+  has_many :user_search_histories, dependent: :destroy
+  has_many :videos, through: :user_search_histories
+
   # ユーザーがその日初めて検索するか確認する
   def can_search?
-    # 検索していないか
-    return true if last_search_at.nil?
-    # 最後に検索した日が今日じゃないか
-    last_search_at < Time.zone.now.beginning_of_day
+    last_search = user_search_histories.where(searched_at: Time.zone.today.beginning_of_day..Time.zone.today.end_of_day).last
+    last_search.nil?
   end
 
-  # 検索した日時を記録する
-  def record_search
-    update(last_search_at: Time.zone.now)
-  end
 end
