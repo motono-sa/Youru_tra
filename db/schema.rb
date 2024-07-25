@@ -10,26 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_23_205138) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_24_213728) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "search_histories", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "ip_address"
-    t.date "searched_on", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "training_part_id", null: false
-    t.index ["ip_address"], name: "index_search_histories_on_ip_address"
-    t.index ["searched_on"], name: "index_search_histories_on_searched_on"
-    t.index ["user_id"], name: "index_search_histories_on_user_id"
-  end
 
   create_table "training_parts", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "user_search_histories", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "video_id", null: false
+    t.datetime "searched_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "searched_at"], name: "index_user_search_histories_on_user_id_and_searched_at", unique: true
+    t.index ["user_id"], name: "index_user_search_histories_on_user_id"
+    t.index ["video_id"], name: "index_user_search_histories_on_video_id"
   end
 
   create_table "user_video_searches", force: :cascade do |t|
@@ -49,10 +48,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_23_205138) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name", null: false
-    t.string "last_searched_video_url"
-    t.string "last_searched_video_title"
-    t.datetime "last_search_at"
-    t.integer "last_searched_video_id"
     t.string "reset_password_token"
     t.datetime "reset_password_token_expires_at"
     t.datetime "reset_password_email_sent_at"
@@ -70,6 +65,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_23_205138) do
     t.index ["training_part_id"], name: "index_videos_on_training_part_id"
   end
 
+  add_foreign_key "user_search_histories", "users"
+  add_foreign_key "user_search_histories", "videos"
   add_foreign_key "user_video_searches", "users"
   add_foreign_key "user_video_searches", "videos"
   add_foreign_key "videos", "training_parts"

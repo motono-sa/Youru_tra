@@ -15,7 +15,6 @@ class VideosController < ApplicationController
       if @video && current_user
         current_user.user_video_searches.create(video: @video, date: Time.zone.today)
       end
-      record_search
       save_search_result(@video)
     else
       redirect_to search_limit_videos_path, warning: '1日1回の検索制限があります'
@@ -46,7 +45,7 @@ class VideosController < ApplicationController
   # 検索を記録する
   def record_search
     if current_user
-      current_user.record_search
+      current_user.record_search(@video)
     else
       session[:last_search_at] = Time.zone.now
     end
@@ -62,7 +61,12 @@ class VideosController < ApplicationController
   # 検索結果をユーザーもしくはセッションに保存する
   def save_search_result(video)
     if current_user
-      current_user.update(last_searched_video_url: video.url, last_searched_video_title: video.title, last_searched_video_id: video.id)
+      # 現在の日付を取得
+      today = Time.zone.today.beginning_of_day
+      # ユーザーの検索履歴を取得（存在しない場合は新規作成）
+      search_history = current_user.user_search_histories.find_or_initialize_by(searched_at: today)
+      # 検索履歴を更新
+      search_history.update(video: video, searched_at: Time.zone.now)
     else
       session[:last_searched_video_url] = video.url
       session[:last_searched_video_title] = video.title
@@ -73,7 +77,13 @@ class VideosController < ApplicationController
   # 最後に検索した動画の情報を読み込む
   def load_last_search_result
     if current_user
-      VideoStruct.new(url: current_user.last_searched_video_url, title: current_user.last_searched_video_title, id: current_user.last_searched_video_id)
+      last_search = current_user.user_search_histories.order(searched_at: :desc).first
+      if last_search
+        video = last_search.video
+        VideoStruct.new(url: video.url, title: video.title, id: video.id)
+      else
+        VideoStruct.new(url: nil, title: nil, id: nil)
+      end
     else
       VideoStruct.new(url: session[:last_searched_video_url], title: session[:last_searched_video_title], id: session[:last_searched_video_id])
     end
