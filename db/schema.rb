@@ -10,9 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_24_213728) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_06_203923) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "training_counts", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "training_part_id", null: false
+    t.integer "count", default: 0
+    t.date "month", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["training_part_id"], name: "index_training_counts_on_training_part_id"
+    t.index ["user_id", "training_part_id", "month"], name: "unique_training_count", unique: true
+    t.index ["user_id"], name: "index_training_counts_on_user_id"
+  end
 
   create_table "training_parts", force: :cascade do |t|
     t.string "name"
@@ -65,6 +77,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_24_213728) do
     t.index ["training_part_id"], name: "index_videos_on_training_part_id"
   end
 
+  add_foreign_key "training_counts", "training_parts"
+  add_foreign_key "training_counts", "users"
   add_foreign_key "user_search_histories", "users"
   add_foreign_key "user_search_histories", "videos"
   add_foreign_key "user_video_searches", "users"
