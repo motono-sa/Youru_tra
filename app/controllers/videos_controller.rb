@@ -14,6 +14,7 @@ class VideosController < ApplicationController
       # カレンダーに検索した動画のタイトルを表示するために記録する
       if @video && current_user
         current_user.user_video_searches.create(video: @video, date: Time.zone.today)
+        current_user.update_training_count(@video.training_part, Time.zone.today)
       end
       save_search_result(@video)
     else
