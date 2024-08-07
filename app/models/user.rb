@@ -34,7 +34,7 @@ class User < ApplicationRecord
     monthly_count.save!
   end
 
-  def training_counts_for_month(date)
+  def monthly_training_counts_for_month(date)
     month_start = date.beginning_of_month
     training_counts.where(month: month_start).includes(:training_part)
   end
