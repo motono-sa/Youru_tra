@@ -85,3 +85,6 @@ gem 'letter_opener_web', '~> 2.0'
 gem 'config'
 
 gem 'simple_calendar'
+
+# グラフ
+gem 'chartkick'

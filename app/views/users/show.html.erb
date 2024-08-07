@@ -13,10 +13,11 @@
     </div>
   </div>
   <div class="bg-white p-6 rounded-lg shadow-lg text-center mb-5">
+    <h3 class="text-lg md:text-base text-center font-semibold">鍛えた部位の総合計</h3>
+    <%= column_chart @user.monthly_training_counts_for_month(Date.current).group_by(&:training_part).map { |part, counts| [part.name, counts.sum(&:count)] } %>
+  </div>
+  <div class="bg-white p-6 rounded-lg shadow-lg text-center mb-5">
     <h3 class="text-lg md:text-base text-center font-semibold">カレンダー</h3>
-    <% @monthly_training_counts.each do |count| %>
-      <div><%= count.training_part.name %>: <%= count.count %>回</div>
-    <% end %>
     <div class="month-calendar">
       <%= month_calendar events: @user_video_searches do |date, user_video_searches| %>
       <% end %>

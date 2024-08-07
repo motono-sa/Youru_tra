@@ -20,12 +20,7 @@ class UsersController < ApplicationController
     @user
     @user_video_searches = @user.user_video_searches.includes(video: :training_part)
     @current_month = Time.zone.today.beginning_of_month
-    @monthly_training_counts = @user.training_counts_for_month(@current_month)
-=begin
-  @monthly_training_counts = @user.training_counts.includes(:training_part)
-    .where(month: Time.zone.today.beginning_of_month)
-    .group_by(&:training_part)
-=end
+    @monthly_training_counts = @user.monthly_training_counts_for_month(@current_month)
   end
 
   def edit
