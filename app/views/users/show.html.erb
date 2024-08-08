@@ -14,7 +14,7 @@
   </div>
   <div class="bg-white p-6 rounded-lg shadow-lg text-center mb-5">
     <h3 class="text-lg md:text-base text-center font-semibold">鍛えた部位の総合計</h3>
-    <%= column_chart @user.monthly_training_counts_for_month(Date.current).group_by(&:training_part).map { |part, counts| [part.name, counts.sum(&:count)] } %>
+    <%= column_chart @user.all_training_counts %>
   </div>
   <div class="bg-white p-6 rounded-lg shadow-lg text-center mb-5">
     <h3 class="text-lg md:text-base text-center font-semibold">カレンダー</h3>

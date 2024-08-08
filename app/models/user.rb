@@ -39,4 +39,9 @@ class User < ApplicationRecord
     training_counts.where(month: month_start).includes(:training_part)
   end
 
+  # グラフを総合計にする。
+  def all_training_counts
+    training_counts.group_by(&:training_part).map { |part, counts| [part.name, counts.sum(&:count)] }
+  end
+
 end
