@@ -34,14 +34,28 @@ class User < ApplicationRecord
     monthly_count.save!
   end
 
+  #その月の鍛えば部位の回数
   def monthly_training_counts_for_month(date)
     month_start = date.beginning_of_month
-    training_counts.where(month: month_start).includes(:training_part)
+    training_parts = TrainingPart.all
+    counts = training_parts.map do |part|
+      training_count = training_counts.find_by(training_part: part, month: month_start)
+      {
+        training_part: part,
+        count: training_count ? training_count.count : 0
+      }
+    end
+    counts
   end
 
   # グラフを総合計にする。
   def all_training_counts
-    training_counts.group_by(&:training_part).map { |part, counts| [part.name, counts.sum(&:count)] }
+    training_parts = TrainingPart.all
+    counts = training_parts.map do |part|
+      total_count = training_counts.where(training_part: part).sum(:count)
+      [part.name, total_count]
+    end
+    counts
   end
 
 end
