@@ -19,8 +19,15 @@ class UsersController < ApplicationController
   def show
     @user
     @user_video_searches = @user.user_video_searches.includes(video: :training_part)
-    @current_month = Time.zone.today.beginning_of_month
+    @current_month = params[:start_date].present? ? Date.parse(params[:start_date]) : Time.zone.today.beginning_of_month
     @monthly_training_counts = @user.monthly_training_counts_for_month(@current_month)
+
+    if turbo_frame_request?
+      render partial: 'calendar', locals: { 
+        start_date: @current_month,
+        events: @user_video_searches
+      }
+    end
   end
 
   def edit
