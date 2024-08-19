@@ -25,6 +25,9 @@ Rails.application.routes.draw do
   get 'mypage', to: 'users#show'
   get 'mypage/edit', to: 'users#edit'
   patch 'mypage', to: 'users#update'
+  # 月ごとのカウントを表示する
+  get 'mypage/:start_date', to: 'users#show', as: :mypage_date
+  
   resources :users, only: %i[new create show edit update]
   resources :training_parts, only: %i[index]
 

@@ -1,0 +1,14 @@
+<%= turbo_frame_tag "calendar" do %>
+  <div class="calendar-heading">
+    <time datetime="<%= start_date.strftime('%Y-%m') %>" class="calendar-title"> <%= start_date.year %> <%= t('date.month_names')[start_date.month] %></time>
+  </div>
+  <div class="flex justify-center items-center gap-3">
+    <% @monthly_training_counts.each do |count| %>
+      <div><%= count[:training_part].name %>: <%= count[:count] %>回</div>
+    <% end %>
+  </div>
+  <div class="simple-calendar">
+    <%= month_calendar(events: events, start_date: start_date) do |date, day_events| %>
+    <% end %>
+  </div>
+<% end %>
