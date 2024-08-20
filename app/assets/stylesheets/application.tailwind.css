@@ -97,4 +97,7 @@
       background-color: #E7F6FD;
     }
   }
+  .training_part {
+    @apply text-secondary font-semibold;
+  }
 }
