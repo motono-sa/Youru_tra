@@ -4,7 +4,9 @@
   </div>
   <div class="flex justify-center items-center gap-3">
     <% @monthly_training_counts.each do |count| %>
-      <div><%= count[:training_part].name %>: <%= count[:count] %>回</div>
+      <table class="table table-striped">
+        <tr><td class="training_part"><div><%= count[:training_part].name %></td><td><%= count[:count] %></div></td></tr>
+      </table>
     <% end %>
   </div>
   <div class="simple-calendar">

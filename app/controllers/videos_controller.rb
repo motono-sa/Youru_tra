@@ -72,6 +72,7 @@ class VideosController < ApplicationController
       session[:last_searched_video_url] = video.url
       session[:last_searched_video_title] = video.title
       session[:last_searched_video_id] = video.id
+      session[:last_search_at] = Time.zone.now
     end
   end
 
